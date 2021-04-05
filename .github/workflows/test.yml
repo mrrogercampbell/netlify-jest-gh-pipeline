@@ -1,23 +1,11 @@
-#  Name of workflow
-name: Test workflow
-
-# Trigger workflow on all pull requests
+name: CI
 on: push
-# Jobs to carry out
 jobs:
-  test:
-    # Operating system to run job on
+  build:
     runs-on: ubuntu-latest
-    # Steps in job
     steps:
-      # Get code from repo
-      - name: Checkout code
-        uses: actions/checkout@v1
-      # Install NodeJS
-      - name: Use Node.js 12.x
-        uses: actions/setup-node@v1
-        with:
-          node-version: 12.x
-      # Build the app using Jest 
-      - name: Enzyme Run
-      - run: npm test
+    - uses: actions/checkout@v2
+    - name: Install modules
+      run: npm
+    - name: Run tests
+      run: npm test
